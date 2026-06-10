@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transporte y Agregados T&R</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="nav-logo" href="#">🚜 T&amp;R</a>
+    <ul class="nav-menu">
+      <li><a href="#maquinas">Maquinaria</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="{{ url_for('login') }}" class="btn-nav">Administrar</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-texto">
+      <h1>Alquiler de Maquinaria Pesada</h1>
+      <p>Retroexcavadoras, Volquetes, Excavadoras, Minicargadores y más</p>
+      <a href="#maquinas" class="btn-hero">Ver maquinaria</a>
+    </div>
+  </section>
+
+  <!-- CARRUSEL -->
+  <section class="seccion" id="maquinas">
+    <h2 class="seccion-titulo">Nuestra Maquinaria</h2>
+    <div class="carrusel-wrap">
+      <button class="car-btn" onclick="moverCarrusel(-1)">&#10094;</button>
+      <div class="car-pista">
+        <div class="car-slide activa" id="slide-0">
+          <img src="https://www.ipesa.com.pe/blog/wp-content/uploads/2022/12/retroexcavadora.jpg" alt="Retroexcavadora">
+          <div class="car-info">
+            <h3>Retroexcavadora</h3>
+            <p>Máquina robusta para excavación, nivelación y carga de material en obras de construcción.</p>
+          </div>
+        </div>
+        <div class="car-slide" id="slide-1">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFmRFcwHphBOAWWnqlbj2Wnzb8pAEvAKArVQ&s" alt="Minicargador">
+          <div class="car-info">
+            <h3>Minicargador</h3>
+            <p>Versátil y compacto, ideal para espacios reducidos. Carga y mueve materiales con agilidad.</p>
+          </div>
+        </div>
+        <div class="car-slide" id="slide-2">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVm1T9NLqTQ-4n_32FE5hC0fuZE9FUp8UJNg&s" alt="Volquete">
+          <div class="car-info">
+            <h3>Volquete</h3>
+            <p>Transporte de grandes volúmenes de tierra, arena y agregados para todo tipo de obras.</p>
+          </div>
+        </div>
+        <div class="car-slide" id="slide-3">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR635Gtjibdy3Qz-oA4KggyFmsEDoMbMuaNqA&s" alt="Excavadora">
+          <div class="car-info">
+            <h3>Excavadora</h3>
+            <p>Potente excavadora para zanjas profundas, demolición y movimiento de tierras a gran escala.</p>
+          </div>
+        </div>
+      </div>
+      <button class="car-btn" onclick="moverCarrusel(1)">&#10095;</button>
+    </div>
+    <div class="car-puntos">
+      <span class="punto activo" onclick="irA(0)"></span>
+      <span class="punto" onclick="irA(1)"></span>
+      <span class="punto" onclick="irA(2)"></span>
+      <span class="punto" onclick="irA(3)"></span>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="seccion seccion-oscura" id="servicios">
+    <h2 class="seccion-titulo">Servicios que ofrecemos</h2>
+    <div class="servicios-grid">
+      <div class="serv-card"><span>⛏️</span><h4>Movimiento de Tierra</h4><p>Corte, relleno, compactación y nivelación de terrenos.</p></div>
+      <div class="serv-card"><span>🏗️</span><h4>Demolición</h4><p>Demolición de estructuras con equipos especializados.</p></div>
+      <div class="serv-card"><span>📐</span><h4>Zanjado</h4><p>Zanjas para tuberías, drenaje y sistemas de cable.</p></div>
+      <div class="serv-card"><span>🪨</span><h4>Suministro de Agregados</h4><p>Piedra chancada, arena, base y sub-base para obras.</p></div>
+      <div class="serv-card"><span>🛤️</span><h4>Afirmado</h4><p>Material granular para caminos y plataformas.</p></div>
+      <div class="serv-card"><span>🚛</span><h4>Transporte de Carga</h4><p>Traslado de materiales y equipos a obra.</p></div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section class="seccion" id="precios">
+    <h2 class="seccion-titulo">Tarifas Referenciales</h2>
+    <div class="tabla-wrap">
+      <table class="tabla-precios">
+        <thead>
+          <tr><th>Maquinaria / Servicio</th><th>Precio por día</th><th>Disponibilidad</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Retroexcavadora</td><td>Consultar</td><td>✅ Disponible</td></tr>
+          <tr><td>Volquete</td><td>Consultar</td><td>✅ Disponible</td></tr>
+          <tr><td>Minicargador</td><td>Consultar</td><td>✅ Disponible</td></tr>
+          <tr><td>Excavadora</td><td>Consultar</td><td>✅ Disponible</td></tr>
+          <tr><td>Movimiento de tierras</td><td>Consultar</td><td>✅ Disponible</td></tr>
+          <tr><td>Zanjado</td><td>Consultar</td><td>✅ Disponible</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="seccion seccion-oscura" id="contacto">
+    <h2 class="seccion-titulo">Contacto</h2>
+    <div class="contacto-grid">
+      <div class="contacto-item">📍 Lima - Perú</div>
+      <div class="contacto-item">📞 <a href="tel:+519933317571">993 331 7571</a></div>
+      <div class="contacto-item">🕒 Lunes a sábado: 7:00 am - 6:00 pm</div>
+      <div class="contacto-item">📍 <a href="https://maps.app.goo.gl/NnZoFkkqn15xjUd6A" target="_blank">Ver ubicación en Google Maps</a></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Transporte y Agregados T&amp;R — Lima, Perú</p>
+  </footer>
+
+  <script>
+    let actual = 0;
+    const total = 4;
+    function moverCarrusel(d) { irA(actual + d); }
+    function irA(i) {
+      document.getElementById('slide-' + actual).classList.remove('activa');
+      document.querySelectorAll('.punto')[actual].classList.remove('activo');
+      actual = (i + total) % total;
+      document.getElementById('slide-' + actual).classList.add('activa');
+      document.querySelectorAll('.punto')[actual].classList.add('activo');
+    }
+    setInterval(() => moverCarrusel(1), 4500);
+  </script>
+
+</body>
+</html>

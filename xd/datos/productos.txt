@@ -1,0 +1,4 @@
+1,Retroexcavadora,S/. 500/dia,3
+2,Minicargador,S/. 350/dia,2
+3,Volquete,S/. 400/dia,5
+4,Excavadora,S/. 600/dia,2

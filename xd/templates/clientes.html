@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titulo %}Clientes - T&R{% endblock %}
+{% block contenido %}
+<div class="tabla-seccion">
+  <div class="tabla-header">
+    <h2>👥 Clientes</h2>
+    <a href="{{ url_for('cliente_agregar') }}" class="btn-primary">+ Agregar</a>
+  </div>
+  <table class="tabla">
+    <thead>
+      <tr><th>#</th><th>Nombre</th><th>Teléfono</th><th>Email</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      {% for c in clientes %}
+      <tr>
+        <td>{{ c.id }}</td><td>{{ c.nombre }}</td><td>{{ c.telefono }}</td><td>{{ c.email }}</td>
+        <td>
+          <a href="{{ url_for('cliente_editar', cid=c.id) }}" class="btn-editar">Editar</a>
+          <a href="{{ url_for('cliente_eliminar', cid=c.id) }}" class="btn-eliminar"
+             onclick="return confirm('¿Eliminar este cliente?')">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

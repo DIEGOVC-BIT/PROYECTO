@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block titulo %}{{ accion }} Servicio - T&R{% endblock %}
+{% block contenido %}
+<div class="form-card">
+  <h2>⚙️ {{ accion }} Servicio</h2>
+  {% if mensaje %}<div class="alerta alerta-success">{{ mensaje }}</div>{% endif %}
+  <form method="POST">
+    <label>Nombre del Servicio</label>
+    <input type="text" name="nombre" value="{{ servicio.nombre if servicio else '' }}" required>
+    <label>Descripción</label>
+    <input type="text" name="descripcion" value="{{ servicio.descripcion if servicio else '' }}" required>
+    <button type="submit" class="btn-primary">{{ accion }}</button>
+    <a href="{{ url_for('servicios_lista') }}" class="btn-cancelar">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

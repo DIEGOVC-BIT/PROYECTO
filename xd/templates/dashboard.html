@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block titulo %}Dashboard - T&R{% endblock %}
+{% block contenido %}
+<div class="dashboard">
+  <h2>Panel de Administración</h2>
+  <p>Bienvenido, <strong>{{ session.usuario }}</strong>. Gestiona la información desde aquí.</p>
+  <div class="dashboard-grid">
+    <a href="{{ url_for('productos_lista') }}" class="dash-card">
+      <span class="dash-icono">🔧</span>
+      <h3>Productos</h3>
+      <p>Gestionar maquinaria disponible</p>
+    </a>
+    <a href="{{ url_for('servicios_lista') }}" class="dash-card">
+      <span class="dash-icono">⚙️</span>
+      <h3>Servicios</h3>
+      <p>Gestionar servicios ofrecidos</p>
+    </a>
+    <a href="{{ url_for('clientes_lista') }}" class="dash-card">
+      <span class="dash-icono">👥</span>
+      <h3>Clientes</h3>
+      <p>Gestionar clientes registrados</p>
+    </a>
+  </div>
+</div>
+{% endblock %}

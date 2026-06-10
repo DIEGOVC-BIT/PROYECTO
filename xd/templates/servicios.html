@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titulo %}Servicios - T&R{% endblock %}
+{% block contenido %}
+<div class="tabla-seccion">
+  <div class="tabla-header">
+    <h2>⚙️ Servicios</h2>
+    <a href="{{ url_for('servicio_agregar') }}" class="btn-primary">+ Agregar</a>
+  </div>
+  <table class="tabla">
+    <thead>
+      <tr><th>#</th><th>Nombre</th><th>Descripción</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      {% for s in servicios %}
+      <tr>
+        <td>{{ s.id }}</td><td>{{ s.nombre }}</td><td>{{ s.descripcion }}</td>
+        <td>
+          <a href="{{ url_for('servicio_editar', sid=s.id) }}" class="btn-editar">Editar</a>
+          <a href="{{ url_for('servicio_eliminar', sid=s.id) }}" class="btn-eliminar"
+             onclick="return confirm('¿Eliminar este servicio?')">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

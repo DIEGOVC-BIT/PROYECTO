@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %}{{ accion }} Cliente - T&R{% endblock %}
+{% block contenido %}
+<div class="form-card">
+  <h2>👥 {{ accion }} Cliente</h2>
+  {% if mensaje %}<div class="alerta alerta-success">{{ mensaje }}</div>{% endif %}
+  <form method="POST">
+    <label>Nombre Completo</label>
+    <input type="text" name="nombre" value="{{ cliente.nombre if cliente else '' }}" required>
+    <label>Teléfono</label>
+    <input type="text" name="telefono" value="{{ cliente.telefono if cliente else '' }}" required>
+    <label>Email</label>
+    <input type="email" name="email" value="{{ cliente.email if cliente else '' }}" required>
+    <button type="submit" class="btn-primary">{{ accion }}</button>
+    <a href="{{ url_for('clientes_lista') }}" class="btn-cancelar">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

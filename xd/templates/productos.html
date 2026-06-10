@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titulo %}Productos - T&R{% endblock %}
+{% block contenido %}
+<div class="tabla-seccion">
+  <div class="tabla-header">
+    <h2>🔧 Productos / Maquinaria</h2>
+    <a href="{{ url_for('producto_agregar') }}" class="btn-primary">+ Agregar</a>
+  </div>
+  <table class="tabla">
+    <thead>
+      <tr><th>#</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      {% for p in productos %}
+      <tr>
+        <td>{{ p.id }}</td><td>{{ p.nombre }}</td><td>{{ p.precio }}</td><td>{{ p.stock }}</td>
+        <td>
+          <a href="{{ url_for('producto_editar', pid=p.id) }}" class="btn-editar">Editar</a>
+          <a href="{{ url_for('producto_eliminar', pid=p.id) }}" class="btn-eliminar"
+             onclick="return confirm('¿Eliminar este producto?')">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %}{{ accion }} Producto - T&R{% endblock %}
+{% block contenido %}
+<div class="form-card">
+  <h2>🔧 {{ accion }} Producto</h2>
+  {% if mensaje %}<div class="alerta alerta-success">{{ mensaje }}</div>{% endif %}
+  <form method="POST">
+    <label>Nombre</label>
+    <input type="text" name="nombre" value="{{ producto.nombre if producto else '' }}" required>
+    <label>Precio</label>
+    <input type="text" name="precio" value="{{ producto.precio if producto else '' }}" placeholder="S/. 000/día" required>
+    <label>Stock</label>
+    <input type="number" name="stock" value="{{ producto.stock if producto else 0 }}" min="0" required>
+    <button type="submit" class="btn-primary">{{ accion }}</button>
+    <a href="{{ url_for('productos_lista') }}" class="btn-cancelar">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

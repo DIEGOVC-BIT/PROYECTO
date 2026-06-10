@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block titulo %}T&R{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="{{ url_for('index') }}">🚜 T&amp;R</a>
+    <div class="nav-links">
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('productos_lista') }}">Productos</a>
+      <a href="{{ url_for('servicios_lista') }}">Servicios</a>
+      <a href="{{ url_for('clientes_lista') }}">Clientes</a>
+      <a href="{{ url_for('logout') }}" class="btn-nav">Cerrar Sesión</a>
+    </div>
+  </nav>
+
+  <div class="mensajes">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat, msg in messages %}
+          <div class="alerta alerta-{{ cat }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <main class="contenido">
+    {% block contenido %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Transporte y Agregados T&amp;R — Lima, Perú</p>
+  </footer>
+
+</body>
+</html>

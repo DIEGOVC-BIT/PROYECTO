@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - T&R</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="nav-logo" href="{{ url_for('index') }}">🚜 T&amp;R</a>
+    <a href="{{ url_for('index') }}" class="btn-nav">← Inicio</a>
+  </nav>
+
+  <div class="form-card">
+    <h2>🔐 Iniciar Sesión</h2>
+    {% if mensaje %}
+      <div class="alerta alerta-danger">{{ mensaje }}</div>
+    {% endif %}
+    <form method="POST">
+      <label>Usuario</label>
+      <input type="text" name="usuario" placeholder="Tu usuario" required>
+      <label>Contraseña</label>
+      <input type="password" name="password" placeholder="Tu contraseña" required>
+      <button type="submit" class="btn-primary">Entrar</button>
+    </form>
+    <p style="margin-top:1rem;text-align:center;color:#888;">
+      ¿No tienes cuenta? <a href="{{ url_for('registro') }}">Regístrate aquí</a>
+    </p>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Transporte y Agregados T&amp;R — Lima, Perú</p>
+  </footer>
+</body>
+</html>
